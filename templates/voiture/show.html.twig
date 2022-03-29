@@ -1,0 +1,148 @@
+{% extends 'base.html.twig' %}
+
+
+{% block body %}
+
+  <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Equipements</title>
+    <!-- Core CSS - Include with every page -->
+    <link href="../assetss/plugins/bootstrap/bootstrap.css" rel="stylesheet" />
+    <link href="../assetss/font-awesome/css/font-awesome.css" rel="stylesheet" />
+    <link href="../assetss/plugins/pace/pace-theme-big-counter.css" rel="stylesheet" />
+  <link href="../assetss/css/style.css" rel="stylesheet" />
+      <link href="../assetss/css/main-style.css" rel="stylesheet" />
+
+    <!-- Page-Level CSS -->
+    <link href="../assetss/plugins/dataTables/dataTables.bootstrap.css" rel="stylesheet" />
+<link href="../assets/css/bootstrap.css" rel="stylesheet" />
+<!-- FONTAWESOME STYLES-->
+<link href="../assets/css/font-awesome.css" rel="stylesheet" />
+<!--CUSTOM BASIC STYLES-->
+<link href="../assets/css/basic.css" rel="stylesheet" />
+<!--CUSTOM MAIN STYLES-->
+<link href="../assets/css/custom.css" rel="stylesheet" />
+<!-- GOOGLE FONTS-->
+<link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
+   
+
+
+
+
+
+<body>
+    <!--  wrapper -->
+    <div id="wrapper">
+        <!-- navbar top -->
+      
+        <!--  page-wrapper -->
+       <div id="page-wrapper">
+          
+            <div class="row">
+                 <!--page header-->
+                <div class="col-lg-12">
+                    <h1 class="page-header"> <strong style="color: rgb(17, 105, 236);"> Voiture numéro : </strong>   {{voiture.matricule}}</h1>
+                </div>
+                 <!--end page header-->
+            </div>
+            <div class="row">
+                 <!--Default Pannel, Primary Panel And Success Panel   -->
+                <div class="col-lg-4">
+                
+                </div>
+                <div class="col-lg-4">
+                    <div class="panel panel-primary">
+                        <div class="panel-heading">
+                          <h2>  {{ voiture.marque }}  </h2>
+                          <p> {{voiture.modele}}  </p>
+                        </div>
+                        <div class="panel-body">
+                           <center> <img src= "{{ asset('/img/' ~ voiture.image)}}" class="card-img-top"  height="225" width="255"> </center>
+                        </div>
+                        <div class="panel-footer">
+                            <a href="{{ path('voiture_edit', {'id': voiture.id}) }}"> 
+                                <button type="button" class="btn btn-primary btn-xs">Edit</button> 
+                            </a>         
+                          
+                          <br>
+                            
+                                <a href="{{ path('voiture_delete', {'id': voiture.id}) }}"> 
+                                <button type="button" class="btn btn-primary btn-xs" >delte</button> 
+                               
+                            </a>         
+                          
+                           
+                           </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                   
+                </div>
+                  <!--End Default Pannel, Primary Panel And Success Panel   -->
+            </div>
+            <div class="row">
+                <!--Info Pannel, Warning Panel And Danger Panel   -->
+                <div class="col-lg-4">
+
+                </div>
+              
+                <!--End Info Pannel, Warning Panel And Danger Panel   -->
+            </div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <!--Collapsible Accordion Panel Group   -->
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                       
+                               <strong style="color: rgb(17, 105, 236);"> <h1>Characteristics</h1></strong> 
+                        </div>
+                        <div class="panel-body">
+                            <div class="panel-group" id="accordion">
+                                <div class="panel panel-default">
+                                    
+                                    <div id="collapseOne" class="panel-collapse collapse in">
+                                        <div class="panel-body">
+                                       <h2>Couleur :  </h2>   <h3>  {{ voiture.couleur }} </h3> <br>
+                                       <h2>Nombre de places :  </h2>  <h3>  {{ voiture.nbplaces }} </h3> 
+                                    
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="panel panel-default">
+                                
+                                   
+                                </div>
+                       
+                    </div>
+                     <!--End Collapsible Accordion Panel Group   -->
+                </div>
+                
+            </div> 
+   <!-- Core Scripts - Include with every page -->
+    <script src="../assetss/plugins/jquery-1.10.2.js"></script>
+    <script src="../assetss/plugins/bootstrap/bootstrap.min.js"></script>
+    <script src="../assetss/plugins/metisMenu/jquery.metisMenu.js"></script>
+    <script src="../assetss/plugins/pace/pace.js"></script>
+    <script src="../assetss/scripts/siminta.js"></script>
+    <!-- Page-Level Plugin Scripts-->
+    <script src="../assetss/plugins/dataTables/jquery.dataTables.js"></script>
+    <script src="../assetss/plugins/dataTables/dataTables.bootstrap.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#dataTables-example').dataTable();
+        });
+    </script>
+
+  <!-- /. FOOTER  -->
+    <!-- SCRIPTS -AT THE BOTOM TO REDUCE THE LOAD TIME-->
+    <!-- JQUERY SCRIPTS -->
+    <script src="../assets/js/jquery-1.10.2.js"></script>
+    <!-- BOOTSTRAP SCRIPTS -->
+    <script src="../assets/js/bootstrap.js"></script>
+     <!-- METISMENU SCRIPTS -->
+    <script src="../assets/js/jquery.metisMenu.js"></script>
+    <!-- CUSTOM SCRIPTS -->
+    <script src="../assets/js/custom.js"></script>
+
+{% endblock %}

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}Welcome!{% endblock %}</title>
+        {# Run `composer require symfony/webpack-encore-bundle`
+           and uncomment the following Encore helpers to start using Symfony UX #}
+        {% block stylesheets %}
+            {#{{ encore_entry_link_tags('app') }}#} 
+        {% endblock %}
+
+        {% block javascripts %}
+            {#{{ encore_entry_script_tags('app') }}#}
+        {% endblock %}  
+
+
+
+   <div id="wrapper">
+        <nav class="navbar navbar-default navbar-cls-top " role="navigation" style="margin-bottom: 0">
+          
+
+            <div class="header-right">
+
+        
+                <a href="{{ path('app_logout') }}" class="btn btn-danger" title="Logout"><i class="fa fa-exclamation-circle fa-2x"></i></a>
+
+
+            </div>
+        </nav>
+        <!-- /. NAV TOP  -->
+        <nav class="navbar-default navbar-side" role="navigation">
+            <div class="sidebar-collapse">
+                <ul class="nav" id="main-menu">
+                   
+                    {% if is_granted('ROLE_ADMIN') %}
+                    <li>
+                        <a href="{{ path('Users') }}"><i class="fa fa-anchor "></i>Admin</a>
+                    </li>
+                    {% endif %}
+
+                    <li>
+                        <a  href="{{ path('voiture_index') }}"><i class="fa fa-dashboard "></i>Mes voitures </a>
+                    </li>
+                   
+                      <li>
+                        <a  href="{{ path('location_index') }}"><i class="fa fa-dashboard "></i>Mes Commandes </a>
+                    </li>
+                   
+                   
+                
+                    <li>
+                        <a href="#"><i class="fa fa-desktop "></i>Ajouter <span class="fa arrow"></span></a>
+                         <ul class="nav nav-second-level"> 
+                         
+                    {% if is_granted('ROLE_ADMIN') %}
+                            <li>
+
+                                <a href="{{ path('Add_user') }}"><i class=""></i>Ajouter Utilisateur</a>
+                            </li>  
+                             {% endif %}
+                            <li>
+                                <a href="{{ path('voiture_new') }}"><i class=" "></i>Ajouter Voiture</a>   
+                            </li>
+                        </ul>
+                    </li> 
+                    <li>
+                        <a href="{{ path('app_login') }}"><i class="fa fa-sign-in "></i>Login Page</a>
+                    </li>
+                   
+                   
+                
+                    
+            </div>
+
+        </nav>
+
+
+    </head>
+    <body>
+        {% block body %}{% endblock %}
+    </body>
+</html>
